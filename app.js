@@ -9,9 +9,16 @@ const TALKS = [
     youtubeId: null,
   },
   {
+    title: "What is Multiple Myeloma?",
+    date: null,
+    description: "Short overview of multiple myeloma, produced with the CU Division of Hematology.",
+    pdf: null,
+    youtubeId: "PGsxk5Fek3s",
+  },
+  {
     title: "¿Qué es el Mieloma Múltiple?",
     date: null,
-    description: "Spanish-language overview of multiple myeloma, produced with the CU Division of Hematology.",
+    description: "Spanish-language version of the overview above, produced with the CU Division of Hematology.",
     pdf: null,
     youtubeId: "EkhESobeP8I",
   },
