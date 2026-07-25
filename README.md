@@ -13,15 +13,26 @@ Drop the PDF file itself into `talks/`.
 
 ## "View-only" caveat
 
-PDFs are embedded via `<iframe src="...#toolbar=0&navpanes=0">`, which hides the
-browser's built-in download/print toolbar in Chrome and Firefox. That deters casual
-downloading, but it is **not real DRM**: the file is still a public URL the browser
-must fetch to render it, so a visitor who opens dev tools or the network tab can
-still get the file. There's no way to serve a PDF a browser can render but a
-determined visitor truly cannot copy, on free static hosting or otherwise. If
-stronger protection is ever needed, options are a server-rendered per-page-image
-viewer or a proper DRM service — both add real infrastructure, not worth it unless
-this becomes a real problem.
+PDFs are embedded via a self-hosted PDF.js viewer (`vendor/pdfjs/`, Mozilla's
+open-source viewer, vendored — not a build dependency) instead of a raw
+`<iframe src="file.pdf">`. Reasons:
+- The browser-native trick (`#toolbar=0`) only hides Chrome/Firefox's toolbar;
+  Safari's iframe PDF plugin ignores it and often renders page one only, with no
+  scrolling. PDF.js renders consistently (full scroll/paging) in every browser.
+- `web/viewer-custom.css` hides PDF.js's download/print/open-file buttons, which
+  a raw iframe embed can't do at all.
+
+This is still **not real DRM**: the PDF is a public URL PDF.js fetches client-side,
+so a visitor using dev tools or the network tab can still get the file. There's no
+way to serve a PDF a browser can render but a determined visitor truly cannot copy,
+on free static hosting or otherwise. If stronger protection is ever needed, options
+are a server-rendered per-page-image viewer or a proper DRM service — both add real
+infrastructure, not worth it unless this becomes a real problem.
+
+To update PDF.js: download a new `pdfjs-X.Y.Z-dist.zip` from
+https://github.com/mozilla/pdf.js/releases, replace `vendor/pdfjs/`, and re-apply
+the `viewer-custom.css` `<link>` line in `web/viewer.html` (see git history for the
+one-line diff).
 
 ## DNS (Porkbun)
 

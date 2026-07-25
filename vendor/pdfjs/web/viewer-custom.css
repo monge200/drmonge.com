@@ -1,0 +1,12 @@
+/* View-only mode: hide download/print/open-file affordances. Not real DRM — see README. */
+#printButton,
+#downloadButton,
+#secondaryOpenFile,
+#secondaryPrint,
+#secondaryDownload,
+#editorModeButtons #editorHighlight,
+#editorModeButtons #editorFreeText,
+#editorModeButtons #editorInk,
+#editorModeButtons #editorStamp {
+  display: none !important;
+}
