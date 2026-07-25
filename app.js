@@ -8,6 +8,20 @@ const TALKS = [
     pdf: "talks/understanding-myeloma-basics.pdf",
     youtubeId: null,
   },
+  {
+    title: "¿Qué es el Mieloma Múltiple?",
+    date: null,
+    description: "Spanish-language overview of multiple myeloma, produced with the CU Division of Hematology.",
+    pdf: null,
+    youtubeId: "EkhESobeP8I",
+  },
+  {
+    title: "2026 Best of Hematology: Bispecifics, CAR-T Cells, and Sequencing Strategies in MM",
+    date: null,
+    description: "Talk for Total Health Oncology on treatment sequencing with bispecifics and CAR-T therapies in multiple myeloma.",
+    pdf: null,
+    youtubeId: "U8MFdvc4fvU",
+  },
 ];
 
 function renderTalk(talk, index) {
