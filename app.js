@@ -45,7 +45,7 @@ function renderTalk(talk, index) {
   if (talk.pdf) {
     const frame = document.createElement("iframe");
     frame.className = "viewer-frame";
-    frame.src = `vendor/pdfjs/web/viewer.html?file=${encodeURIComponent(talk.pdf)}`;
+    frame.src = `vendor/pdfjs/web/viewer.html?file=${encodeURIComponent("/" + talk.pdf)}`;
     frame.title = `${talk.title} (slides)`;
     frame.loading = "lazy";
     el.appendChild(frame);
