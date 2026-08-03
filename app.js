@@ -11,6 +11,15 @@ const TALKS = [
     externalUrl: null,
   },
   {
+    title: "What do Clinical Trial Results Mean?",
+    date: null,
+    description: "Cancer Research UK's plain-language explainer on how to interpret clinical trial results.",
+    pdf: null,
+    youtubeId: null,
+    externalUrl: "https://www.cancerresearchuk.org/about-cancer/find-a-clinical-trial/clinical-trial-results/what-do-clinical-trial-results-mean-0",
+    externalLinkLabel: "Read on Cancer Research UK ↗",
+  },
+  {
     title: "Understanding Myeloma Basics",
     date: "2026-07",
     description: "An introduction to multiple myeloma for patients and families: what plasma cells are, how myeloma is diagnosed and staged, and what treatment and monitoring look like.",
@@ -104,7 +113,7 @@ function renderTalk(talk, index) {
     link.href = talk.externalUrl;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    link.textContent = "Watch on VuMedi ↗";
+    link.textContent = talk.externalLinkLabel ?? "Watch on VuMedi ↗";
     el.appendChild(link);
   } else if (!talk.pdf) {
     const ph = document.createElement("div");
