@@ -3,6 +3,14 @@
 // externalUrl is for videos hosted on platforms that block embedding (e.g. VuMedi) — rendered as a link out.
 const TALKS = [
   {
+    title: "Newly Diagnosed Multiple Myeloma: Getting Started",
+    date: "2026-08",
+    description: "An introduction for patients newly diagnosed with multiple myeloma: what to expect from workup, staging, and the first steps of treatment planning.",
+    pdf: "talks/ndmm-getting-started.pdf",
+    youtubeId: null,
+    externalUrl: null,
+  },
+  {
     title: "Understanding Myeloma Basics",
     date: "2026-07",
     description: "An introduction to multiple myeloma for patients and families: what plasma cells are, how myeloma is diagnosed and staged, and what treatment and monitoring look like.",
