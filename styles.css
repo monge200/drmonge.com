@@ -44,17 +44,28 @@ header p {
   color: var(--muted);
 }
 
-/* Byline link (UCHealth profile). Deliberately NOT .external-link, which is a
-   bordered pill sized for the talk cards and too heavy for a header line. */
-header p a {
+/* Byline link (UCHealth profile): restrained inline treatment. Scoped with
+   :not(.external-link) so it cannot fight the pill-styled CTA below it --
+   relying on specificity alone here would be a trap for the next editor. */
+header p a:not(.external-link) {
   color: var(--accent);
   text-decoration: none;
   border-bottom: 1px solid transparent;
 }
 
-header p a:hover,
-header p a:focus-visible {
+header p a:not(.external-link):hover,
+header p a:not(.external-link):focus-visible {
   border-bottom-color: var(--accent);
+}
+
+/* Clinical-trials call to action: reuses the talk cards' bordered pill, but
+   bolder and with room above it, since header p margins are deliberately tight. */
+header .cta-line {
+  margin-top: 0.7rem;
+}
+
+header .header-cta {
+  font-weight: 700;
 }
 
 main {
