@@ -3,6 +3,14 @@
 // externalUrl is for videos hosted on platforms that block embedding (e.g. VuMedi) — rendered as a link out.
 const TALKS = [
   {
+    title: "Rethinking Early Myeloma Care",
+    date: "2026-09",
+    description: "How treatment decisions get individualized across smoldering myeloma and newly diagnosed disease: what the risk models really say, when treating early beats watching closely, and how transplant, MRD and the length of maintenance are actually decided.",
+    pdf: "talks/rethinking-early-myeloma-care.pdf",
+    youtubeId: null,
+    externalUrl: null,
+  },
+  {
     title: "Newly Diagnosed Multiple Myeloma: Getting Started",
     date: "2026-08",
     description: "An introduction for patients newly diagnosed with multiple myeloma: what to expect from workup, staging, and the first steps of treatment planning.",
