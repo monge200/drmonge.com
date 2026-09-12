@@ -85,6 +85,75 @@ const TALKS = [
   },
 ];
 
+// ---------------------------------------------------------------------------
+// Clinical trials. Data comes from trials.generated.js, which is generated from
+// the same trials.json that builds the slide -- never edit either by hand.
+//
+// Desktop gets a table-like grid; below 760px each row becomes a card, because
+// a 5-column table carrying an NCT number and a regimen description is
+// unreadable on a phone, and a phone is where patients actually look this up.
+// ---------------------------------------------------------------------------
+const CT_BASE = "https://clinicaltrials.gov/study/";
+
+function trialRow(row, accentClass) {
+  const open = row.status !== "in startup";
+  const el = document.createElement("div");
+  el.className = "trial" + (open ? " is-open" : " is-startup");
+
+  const stage = document.createElement("span");
+  stage.className = "trial-stage " + (open ? accentClass : "stage-muted");
+  stage.textContent = row.stage;
+
+  const name = document.createElement("span");
+  name.className = "trial-name";
+  name.textContent = row.name;
+
+  const nct = document.createElement("a");
+  nct.className = "trial-nct";
+  nct.href = CT_BASE + row.nct;
+  nct.target = "_blank";
+  nct.rel = "noopener noreferrer";
+  nct.textContent = row.nct;
+  nct.setAttribute("aria-label",
+    row.name + " on ClinicalTrials.gov, " + row.nct);
+
+  const schema = document.createElement("span");
+  schema.className = "trial-schema";
+  schema.textContent = row.schema;
+
+  const status = document.createElement("span");
+  status.className = "trial-status" + (open ? "" : " status-muted");
+  status.textContent = row.status;
+
+  [stage, name, nct, schema, status].forEach((n) => el.appendChild(n));
+  return el;
+}
+
+function renderTrials() {
+  const host = document.getElementById("trials-list");
+  if (!host || typeof TRIALS === "undefined") return;
+
+  TRIALS.sections.forEach((section) => {
+    const h = document.createElement("h3");
+    h.className = "trial-section " + (section.accent || "accent1");
+    h.textContent = section.label;
+    host.appendChild(h);
+
+    const group = document.createElement("div");
+    group.className = "trial-group";
+    section.rows.forEach((row) =>
+      group.appendChild(trialRow(row, section.accent || "accent1")));
+    host.appendChild(group);
+  });
+
+  const stamp = document.getElementById("trials-verified");
+  if (stamp && TRIALS.verified_on) {
+    stamp.textContent =
+      "Trial details verified against ClinicalTrials.gov on " +
+      TRIALS.verified_on + ". Status can change \u2014 please confirm with our team.";
+  }
+}
+
 function renderTalk(talk, index) {
   const el = document.createElement("article");
   el.className = "talk";
@@ -134,6 +203,7 @@ function renderTalk(talk, index) {
 }
 
 function render() {
+  renderTrials();
   const list = document.getElementById("talks-list");
   if (TALKS.length === 0) {
     list.innerHTML = '<p class="placeholder">Talks coming soon.</p>';

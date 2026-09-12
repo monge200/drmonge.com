@@ -172,3 +172,122 @@ footer {
   font-size: 0.85rem;
   border-top: 1px solid var(--border);
 }
+
+/* ===========================================================================
+   Clinical trials table.
+
+   Desktop is a 5-column grid; under 760px every row collapses into a card with
+   its own labelled lines. A five-column table carrying an NCT number AND a
+   regimen description simply does not fit a phone, and a phone is where
+   patients actually read this -- so the mobile form is the important one.
+   =========================================================================== */
+.section-note {
+  max-width: 860px;
+  margin: -0.25rem auto 1.25rem;
+  padding: 0 1.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.trial-section {
+  max-width: 860px;
+  margin: 1.5rem auto 0.5rem;
+  padding: 0 1.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.trial-section.accent1 { color: #3d7ea6; }
+.trial-section.accent2 { color: #6f7d1c; }
+
+.trial-group {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.trial {
+  display: grid;
+  grid-template-columns: 8.5rem 7rem 7rem 1fr 5.5rem;
+  gap: 0.75rem;
+  align-items: baseline;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.trial:last-child { border-bottom: none; }
+
+.trial-stage {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  overflow-wrap: break-word;
+}
+
+.trial-stage.accent1 { background: #3d7ea6; }
+.trial-stage.accent2 { background: #6f7d1c; }
+.trial-stage.stage-muted { background: var(--muted); }
+
+.trial-name { font-weight: 700; }
+.is-startup .trial-name { color: var(--muted); font-weight: 600; }
+
+.trial-nct {
+  font-size: 0.8rem;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.trial-nct:hover,
+.trial-nct:focus-visible { border-bottom-color: var(--accent); }
+
+.trial-schema {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.trial-status {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #3d7ea6;
+  white-space: nowrap;
+}
+
+.trial-status.status-muted {
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+
+.trials-verified {
+  max-width: 860px;
+  margin: 1rem auto 0;
+  padding: 0 1.5rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+@media (max-width: 760px) {
+  .trial {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+    padding: 0.9rem 0;
+  }
+  .trial-stage { justify-self: start; }
+  .trial-name { font-size: 1.05rem; }
+  /* status reads as a sentence on its own line rather than a table cell */
+  .trial-status::before { content: "Status: "; font-weight: 500; color: var(--muted); }
+}
