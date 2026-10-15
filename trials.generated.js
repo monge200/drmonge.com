@@ -47,20 +47,13 @@ const TRIALS = {
           "name": "TRIlogy-5",
           "nct": "NCT07518186",
           "schema": "Phase 3 \u2014 trispecific antibody (JNJ-79635322) versus teclistamab, after 1 to 3 prior lines",
-          "status": "in startup"
+          "status": "OPEN"
         },
         {
           "stage": "Late RRMM",
           "name": "DURGA-1",
           "nct": "NCT05850234",
           "schema": "Phase 1b/2 \u2014 dual-target BCMA/CD19 CAR-T (AZD0120)",
-          "status": "OPEN"
-        },
-        {
-          "stage": "Late RRMM",
-          "name": "CaMMouflage",
-          "nct": "NCT05722418",
-          "schema": "Phase 1 \u2014 off-the-shelf CRISPR-edited anti-BCMA CAR-T (CB-011)",
           "status": "OPEN"
         },
         {
@@ -82,7 +75,7 @@ const TRIALS = {
           "name": "ALANIS",
           "nct": "NCT07224672",
           "schema": "Phase 2 \u2014 belantamab mafodotin added to cyclophosphamide, bortezomib and dexamethasone",
-          "status": "in startup"
+          "status": "OPEN"
         },
         {
           "stage": "Relapsed AL",
